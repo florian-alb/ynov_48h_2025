@@ -10,6 +10,7 @@ export default function Header() {
     { label: "Activités", href: "/activities" },
   ];
 
+  // TODO: handle auth
   const [user, setUser] = useState({
     name: "John Doe",
     email: "john.doe@example.com",

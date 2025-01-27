@@ -6,17 +6,15 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { User } from "@/types/user";
 import { LogOutIcon } from "lucide-react";
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string;
-    email: string;
-    avatar: string;
-  };
-}) {
+export function NavUser({ user }: { user: User }) {
+  function signOut() {
+    // TODO: handle sign out
+    console.log("sign out");
+  }
+
   return (
     <div className="flex items-center gap-2">
       <Popover>
@@ -34,7 +32,7 @@ export function NavUser({
           </div>
           <Separator />
           <div className="pt-2">
-            <Button>
+            <Button onClick={() => signOut()}>
               <LogOutIcon className="w-4 h-4" />
               <span>Logout</span>
             </Button>
