@@ -1,9 +1,9 @@
-import { Base } from "@/layouts/Base";
+import {Base} from "@/layouts/Base";
 
 export default function Home() {
-  return (
-    <Base>
-      <div>Home Page</div>
-    </Base>
-  );
+    return (
+        <Base>
+            <div>Home Page</div>
+        </Base>
+    );
 }
