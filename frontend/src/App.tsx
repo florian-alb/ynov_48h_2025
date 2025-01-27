@@ -1,12 +1,12 @@
 import "./App.css";
-import { Button } from "./components/ui/button";
+import { PublicBase } from "./layouts/base";
 
 function App() {
   return (
     <>
-      <div>
-        <Button>Click me</Button>
-      </div>
+      <PublicBase>
+        <div>salut</div>
+      </PublicBase>
     </>
   );
 }
