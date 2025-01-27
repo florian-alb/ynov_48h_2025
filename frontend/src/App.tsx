@@ -1,14 +1,9 @@
-import "./App.css";
-import { Button } from "./components/ui/button";
+import {AppRouter} from './router/router';
 
-function App() {
-  return (
-    <>
-      <div>
-        <Button>Click me</Button>
-      </div>
-    </>
-  );
+export default function App() {
+    return (
+        <div>
+            <AppRouter/>
+        </div>
+    );
 }
-
-export default App;
