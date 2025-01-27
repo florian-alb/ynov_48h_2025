@@ -1,14 +1,9 @@
-import "./App.css";
-import { PublicBase } from "./layouts/base";
+import {AppRouter} from './router/router';
 
-function App() {
-  return (
-    <>
-      <PublicBase>
-        <div>salut</div>
-      </PublicBase>
-    </>
-  );
+export default function App() {
+    return (
+        <div>
+            <AppRouter/>
+        </div>
+    );
 }
-
-export default App;
