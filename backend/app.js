@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 
 import activitiesRouter from './router/activities-router.js'
+import zoneRouter from './router/zone-router.js'
 
 // Import path module to get the current directory (node < 20.11.X)
 import * as url from 'url';
@@ -21,6 +22,7 @@ app.use(OpenApiValidator.middleware({
 
 // API routers
 app.use('/activities', activitiesRouter)
+app.use('/zone', zoneRouter)
 
 app.use((err, req, res, next) => {
     // format error

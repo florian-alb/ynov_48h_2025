@@ -6,7 +6,7 @@ export const getActivities = async (req, res) => {
         success: true,
         activities
     })
-}
+}   
 
 export const getActivityById = async (req, res) => {
     const activitiy = await getById(req.params.id)
@@ -39,7 +39,7 @@ export const updateActivity = async (req, res) => {
     
     //body = title, description, zoneId
     const activity = await update(req.params.id, req.body)
-
+    
     if (!activity) {
         return res.status(404).json({
             success: false,

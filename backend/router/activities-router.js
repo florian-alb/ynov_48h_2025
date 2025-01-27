@@ -1,6 +1,6 @@
 import express from 'express'
 
-
+import { getActivities, getActivityById, createActivity, updateActivity, deleteActivity } from '../controllers/activities-controller.js'
 const router = express.Router()
 
 // TODO - add authentication middleware
