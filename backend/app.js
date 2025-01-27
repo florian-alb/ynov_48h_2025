@@ -1,3 +1,9 @@
+import * as OpenApiValidator from 'express-openapi-validator'
+import express from 'express'
+import cors from 'cors'
+
+import activitiesRouter from './router/activities-router.js'
+
 // Import path module to get the current directory (node < 20.11.X)
 import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -14,9 +20,7 @@ app.use(OpenApiValidator.middleware({
 }))
 
 // API routers
-app.use('/users', usersRouter) // When a request is made to /users, the usersRouter will handle it
-app.use('/movies', moviesRouter) // When a request is made to /movies, the moviesRouter will handle it
-app.use('/comments', commentsRouter) // When a request is made to /comments, the commentsRouter will handle it
+app.use('/activities', activitiesRouter)
 
 app.use((err, req, res, next) => {
     // format error
