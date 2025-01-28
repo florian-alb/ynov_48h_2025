@@ -7,18 +7,19 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model User {
-    id        String   @id @default(cuid())
-    username  String   @unique
-    password  String
-    email     String   @unique
-    role      Role     @default(USER)
-    createdAt DateTime @default(now())
-    messages  Chat[]
-}
+// TODO : define if we need this model
+// model User {
+//     id        String   @id @default(cuid())
+//     username  String   @unique
+//     password  String
+//     email     String   @unique
+//     role      Role     @default(USER)
+//     createdAt DateTime @default(now())
+//     messages  Chat[]
+// }
 
 model ZoneSensible {
-    id        String   @id @default(cuid())
+    id                String     @id @default(cuid())
     name              String
     description       String
     longitudeLocation Float
@@ -26,23 +27,35 @@ model ZoneSensible {
     status            Status     @default(NORMAL)
     updatedAt         DateTime   @updatedAt
     activities        Activity[]
+    chats             Chat[]
 }
 
-model Chat {
-    id        String   @id @default(cuid())
-    userId    String
-    message   String
-    createdAt DateTime @default(now())
+// TODO : define if we need this model
+// model Chat {
+//     id        String   @id @default(cuid())
+//     userId    String
+//     message   String
+//     createdAt DateTime @default(now())
 
-    user User @relation(fields: [userId], references: [id])
-}
+//     user User @relation(fields: [userId], references: [id])
+// }
 
 model Activity {
-    id        String   @id @default(cuid())
+    id          String   @id @default(cuid())
     title       String
     description String
     zoneId      String
     createdAt   DateTime @default(now())
+
+    zone ZoneSensible @relation(fields: [zoneId], references: [id])
+}
+
+model Chat {
+    id        Int      @id @default(autoincrement())
+    zoneId    String
+    userName  String
+    message   String
+    createdAt DateTime @default(now())
 
     zone ZoneSensible @relation(fields: [zoneId], references: [id])
 }
