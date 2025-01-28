@@ -1,4 +1,4 @@
-import prisma from "../db";
+import prisma from "../db.js";
 
 export const getAll = async () => {
     return await prisma.zones.findMany()
