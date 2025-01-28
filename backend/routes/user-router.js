@@ -5,8 +5,8 @@ import authMiddleware from '../middlewares/auth.js'
 const router = express.Router()
 
 
-router.get('/:uid', authMiddleware, getUserById) // Will match GET /users/:id
-router.delete('/:uid', authMiddleware, deleteUserById) // Will match DELETE /users/:id
+router.get('/:id', authMiddleware, getUserById) // Will match GET /users/:id
+router.delete('/:id', authMiddleware, deleteUserById) // Will match DELETE /users/:id
 router.post('/register', authMiddleware, registerUser) // Will match POST /users/register
 router.post('/login', loginUser) // Will match POST /users/login
 
