@@ -1,6 +1,5 @@
 import { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
-import { features } from "./zones";
 
 export function Map() {
   const mapRef = useRef<mapboxgl.Map | undefined>();
