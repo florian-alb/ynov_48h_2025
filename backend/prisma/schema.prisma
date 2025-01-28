@@ -1,0 +1,59 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id        String   @id @default(cuid())
+    username  String   @unique
+    password  String
+    email     String   @unique
+    role      Role     @default(USER)
+    createdAt DateTime @default(now())
+    messages  Chat[]
+}
+
+model ZoneSensible {
+    id        String   @id @default(cuid())
+    name              String
+    description       String
+    longitudeLocation Float
+    latitudeLocation  Float
+    status            Status     @default(NORMAL)
+    updatedAt         DateTime   @updatedAt
+    activities        Activity[]
+}
+
+model Chat {
+    id        String   @id @default(cuid())
+    userId    String
+    message   String
+    createdAt DateTime @default(now())
+
+    user User @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+    id        String   @id @default(cuid())
+    title       String
+    description String
+    zoneId      String
+    createdAt   DateTime @default(now())
+
+    zone ZoneSensible @relation(fields: [zoneId], references: [id])
+}
+
+enum Role {
+    USER
+    ADMIN
+}
+
+enum Status {
+    NORMAL
+    DANGER
+    CRITICAL
+}

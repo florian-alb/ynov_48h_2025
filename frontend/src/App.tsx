@@ -1,14 +1,11 @@
-import "./App.css";
-import { Button } from "./components/ui/button";
+import { AppRouter } from "./router/router";
+import "@/App.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
-function App() {
+export default function App() {
   return (
     <>
-      <div>
-        <Button>Click me</Button>
-      </div>
+      <AppRouter />
     </>
   );
 }
-
-export default App;
