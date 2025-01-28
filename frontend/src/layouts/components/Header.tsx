@@ -18,7 +18,7 @@ export default function Header() {
   });
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="fixed top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex items-center justify-between space-x-4 p-4 w-full">
         {/* logo */}
         <div className="flex items-center gap-4">
